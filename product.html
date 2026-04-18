@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AV Bag Store</title>
+
+<style>
+    body {
+        background: #000;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        color: #fff;
+    }
+
+    /* Header */
+    .store-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .cart {
+        background: #ff2d2d;
+        padding: 10px 18px;
+        border-radius: 14px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    /* Product Card */
+    .product-card {
+        background: #111;
+        padding: 15px;
+        border-radius: 14px;
+        transition: 0.3s;
+        box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0px 0px 25px rgba(255, 50, 50, 0.6);
+    }
+
+    .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff2d2d;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 240px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .product-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .product-price {
+        font-size: 18px;
+        color: #ff4a4a;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .add-btn {
+        width: 100%;
+        background: #ff2d2d;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 17px;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+    .add-btn:hover {
+        background: #ff4747;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="store-header">
+    <h1>AV Bag Store 🔒</h1>
+    <div class="cart">
+        🛒 <span id="cartCount">0</span>
+    </div>
+</div>
+
+<!-- PRODUCT LIST -->
+<div class="product-grid" id="productList"></div>
+
+<script>
+/* ⭐⭐ EASY TO EDIT — CHANGE YOUR IMAGE SRC HERE ⭐⭐ */
+const products = [
+    { title: "College Bag", price: 1299, img: "college.png", badge: "New" },
+    { title: "Travel Bag", price: 1599, img: "travel.png", badge: "Hot" },
+    { title: "Handbag", price: 999, img: "handbag.png" },
+    { title: "Office Bag", price: 799, img: "office.png" },
+    { title: "Leather Bag", price: 1399, img: "leather.png", badge: "Best" },
+    { title: "Mini Sling Bag", price: 599, img: "sling bag.png" }
+];
+
+/*
+👉 HOW TO USE YOUR OWN IMAGES:
+   1. Put images in the same folder (ex: handbag.png)
+   2. OR use URLs:
+      img: "https://i.imgur.com/abc123.jpg"
+*/
+
+let cartCount = 0;
+const container = document.getElementById("productList");
+
+/* Display Product Cards */
+products.forEach(p => {
+    container.innerHTML += `
+        <div class="product-card">
+            ${p.badge ? `<div class="badge">${p.badge}</div>` : ""}
+            <img src="${p.img}" alt="${p.title}">
+            <div class="product-title">${p.title}</div>
+            <div class="product-price">₹${p.price}</div>
+            <button class="add-btn" onclick="addToCart()">Add</button>
+        </div>
+    `;
+});
+
+/* Add to Cart Animation */
+function addToCart() {
+    cartCount++;
+    document.getElementById("cartCount").textContent = cartCount;
+
+    const cart = document.querySelector(".cart");
+    cart.style.transform = "scale(1.2)";
+    setTimeout(() => {
+        cart.style.transform = "scale(1)";
+    }, 180);
+}
+</script>
+
+</body>
+</html>

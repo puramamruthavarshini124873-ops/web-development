@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: Arial;
+        }
+        .container {
+            width: 450px;
+            background: white;
+            padding: 25px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #aaa;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+        .gender-group {
+            margin-top: 6px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #0078ff;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005fcc;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Enrollment Number</label>
+        <input type="text" id="enroll" placeholder="Enter enrollment number">
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter full name">
+
+        <label>Email ID</label>
+        <input type="email" id="email" placeholder="Enter email">
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <label>Confirm Password</label>
+        <input type="password" id="cpassword" placeholder="Confirm password">
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="Enter phone number">
+
+        <label>Address</label>
+        <textarea id="address" rows="3" placeholder="Enter address"></textarea>
+
+        <label>Gender</label>
+        <div class="gender-group">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+
+        <label>Branch</label>
+        <select id="branch">
+            <option value="">Select Branch</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+
+        <button type="submit">Submit</button>
+
+        <p class="error" id="errorMsg"></p>
+    </form>
+</div>
+
+
+<!-- JavaScript Validation Code -->
+<script>
+function validateForm() {
+
+    let enroll = document.getElementById("enroll").value;
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    let cpass = document.getElementById("cpassword").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+    let branch = document.getElementById("branch").value;
+    let gender = document.querySelector('input[name="gender"]:checked');
+
+    let error = document.getElementById("errorMsg");
+
+    // Validations
+    if (enroll.trim() === "" || isNaN(enroll)) {
+        error.innerHTML = "Please enter a valid enrollment number.";
+        return false;
+    }
+    if (name.trim() === "") {
+        error.innerHTML = "Name cannot be empty.";
+        return false;
+    }
+    if (email.trim() === "" || !email.includes("@")) {
+        error.innerHTML = "Please enter a valid email.";
+        return false;
+    }
+    if (pass.length < 6) {
+        error.innerHTML = "Password must be at least 6 characters.";
+        return false;
+    }
+    if (pass !== cpass) {
+        error.innerHTML = "Passwords do not match.";
+        return false;
+    }
+    if (phone.length !== 10 || isNaN(phone)) {
+        error.innerHTML = "Enter a valid 10-digit phone number.";
+        return false;
+    }
+    if (address.trim() === "") {
+        error.innerHTML = "Please enter address.";
+        return false;
+    }
+    if (!gender) {
+        error.innerHTML = "Please select gender.";
+        return false;
+    }
+    if (branch === "") {
+        error.innerHTML = "Please select branch.";
+        return false;
+    }
+
+    error.innerHTML = "";
+    alert("Form Submitted Successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

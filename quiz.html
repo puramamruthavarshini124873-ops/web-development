@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ultimate Quiz </title>
+
+<meta name=
+
+"viewport" content=
+
+"width=device-width, initial-scale=1.0">
+
+<style>
+body {
+margin:0;
+font-family: Arial;
+background: linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+text-align:center;
+}
+.container {
+margin:50px auto;
+padding:20px;
+width:90%;
+max-width:400px;
+backdrop-filter: blur(15px);
+background: rgba(255,255,255,0.1);
+border-radius:15px;
+}
+button {
+width:90%;
+padding:12px;
+margin:6px;
+background: rgba(255,255,255,0.2);
+border:none;
+color:white;
+cursor:pointer;
+border-radius:10px;
+}
+
+button:hover {
+background:#38bdf8;
+}
+
+.selected {
+background:#38bdf8 !important;
+}
+</style>
+</head>
+
+<body>
+<div class=
+
+"container" id=
+"app">
+<h2>Ultimate Quiz </h2>
+<button onclick=
+
+"start()">Start Quiz </button>
+
+</div>
+<script>
+
+
+// 20 QUESTIONS
+const quiz = [
+{q:"HTML stands for?"
+
+,o:["HTML Lang"
+,
+"Hyper Text Markup Language"
+,
+"Hyper Tool"
+,
+"None"],a:1},
+
+{q:"CSS used for?"
+
+,o:["Structure"
+,
+"Styling"
+,
+"Logic"
+,
+"None"],a:1},
+
+{q:"JS used for?"
+
+,o:["Logic"
+,
+"Style"
+,
+"Structure"
+,
+"None"],a:0},
+
+{q:"Image tag?"
+
+,o:["<img>"
+,
+"<pic>"
+,
+"<src>"
+,
+"<image>"],a:0},
+
+{q:"Link tag?"
+,o:["<a>"
+,
+"<link>"
+,
+"<href>"
+,
+"<url>"],a:0},
+
+{q:"BR tag does?"
+
+,o:["Line break"
+,
+"Bold"
+,
+"Italic"
+,
+"None"],a:0},
+
+{q:"Title tag is used for?"
+
+,o:["Page title"
+,
+"Paragraph"
+,
+"Image"
+,
+"None"],a:0},
+
+{q:"CSS color property?"
+
+,o:["color"
+,
+"font"
+,
+"bg"
+,
+"None"],a:0},
+
+{q:"Inline CSS means?"
+
+,o:["Inside tag"
+,
+"File"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"External CSS means?"
+
+,o:["Separate file"
+,
+"Inline"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"DIV tag used for?"
+
+,o:["Container"
+,
+"Image"
+,
+"Link"
+,
+"None"],a:0},
+
+{q:"SPAN tag is?"
+
+,o:["Inline element"
+,
+"Block"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"Form tag used for?"
+
+,o:["User input"
+,
+"Design"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"Input tag is?"
+
+,o:["User data"
+,
+"Output"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"ID attribute?"
+
+,o:["Unique"
+,
+"Group"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"Class attribute?"
+
+,o:["Group elements"
+,
+"Unique"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"DOM stands for?"
+
+,o:["Document Object Model"
+,
+"Data Object Model"
+,
+"None"
+,
+"All"],a:0},
+
+{q:"Responsive website?"
+
+,o:["Fits all screens"
+,
+"Only big"
+,
+"Only small"
+,
+"None"],a:0},
+
+{q:"Table tag?"
+
+,o:["<table>"
+,
+"<tr>"
+,
+"<td>"
+,
+"None"],a:0},
+
+{q:"Form submit means?"
+
+,o:["Send data"
+,
+"Style"
+,
+"None"
+,
+"All"],a:0}
+
+];
+
+let user=
+""
+, index=0, score=0, time=10, timer;
+
+let selected = null;
+let answers = [];
+
+// Start
+function start(){
+user = prompt("Enter your name:");
+startQuiz();
+}
+
+// UI
+function startQuiz(){
+document.getElementById("app").innerHTML =
+`
+
+<h3>${user}</h3>
+<h4 id=
+"timer">Time:10</h4>
+<h2 id=
+"q"></h2>
+
+<button onclick=
+
+"select(0)" id=
+
+"b1"></button>
+
+<button onclick=
+
+"select(1)" id=
+
+"b2"></button>
+
+<button onclick=
+
+"select(2)" id=
+
+"b3"></button>
+
+<button onclick=
+
+"select(3)" id=
+
+"b4"></button>
+
+<button onclick=
+
+"next()">Next </button>
+
+<button onclick=
+
+"submitQuiz()">Submit </button>
+
+`
+;
+
+loadQ();
+startTimer();
+}
+// Timer
+function startTimer(){
+timer = setInterval(()=>{
+time--;
+document.getElementById("timer").innerText=
+
+"Time:"+time;
+
+if(time==0){
+next();
+}
+},1000);
+}
+
+// Load Question
+function loadQ(){
+if(index < quiz.length){
+let q=quiz[index];
+document.getElementById("q").innerText =
+
+"Q" + (index+1) + ": " + q.q;
+
+b1.innerText=q.o[0];
+b2.innerText=q.o[1];
+b3.innerText=q.o[2];
+b4.innerText=q.o[3];
+
+selected = null;
+removeHighlight();
+}
+}
+// Select Answer
+function select(i){
+selected = i;
+removeHighlight();
+document.getElementById("b"+(i+1)).classList.add("selected");
+}
+
+// remove highlight
+function removeHighlight(){
+for(let i=1;i<=4;i++){
+document.getElementById("b"+i).classList.remove("selected");
+}
+}
+
+// Next
+function next(){
+if(selected !== null){
+answers[index] = selected;
+}
+
+index++;
+time=10;
+
+if(index < quiz.length){
+loadQ();
+}
+}
+// Submit
+function submitQuiz(){
+clearInterval(timer);
+score = 0;
+for(let i=0;i<quiz.length;i++){
+if(answers[i] == quiz[i].a){
+score++;
+}
+}
+let percent = (score/quiz.length)*100;
+let grade = percent>=80?"A ":percent>=60?"B ":percent>=40?"C ":"Fail ";
+document.getElementById("app").innerHTML =
+`
+
+<h1>Final Result </h1>
+<h3>${user}</h3>
+<p>Score: ${score}/${quiz.length}</p>
+<p>Percentage: ${percent}%</p>
+<p>Grade: ${grade}</p>
+<button onclick=
+
+"location.reload()">Restart </button>
+
+`
+;
+}
+</script>
+</body>
+</html>

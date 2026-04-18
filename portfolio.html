@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animator Portfolio</title>
+<style>
+/* Reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+/* Body */
+body {
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(to right, #1e3c72, #2a5298);
+color: white;
+}
+/* Navbar */
+nav {
+background: rgba(0,0,0,0.7);
+padding: 15px;
+text-align: center;
+}
+/* Header */
+header {
+text-align: center;
+padding: 60px 20px;
+}
+
+header h1 {
+font-size: 40px;
+color: #ffcc00;
+}
+
+header p {
+font-size: 18px;
+}
+
+/* Sections */
+section {
+padding: 40px 20px;
+text-align: center;
+}
+
+/* Cards */
+.card-container {
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+/* Card Style */
+.card {
+background: white;
+color: black;
+padding: 20px;
+border-radius: 15px;
+width: 200px;
+transition: 0.3s;
+}
+.card:hover {
+transform: scale(1.1);
+background: #ffcc00;
+}
+/* Gallery */
+.gallery {
+display: flex;
+gap: 15px;
+justify-content: center;
+}
+.gallery img {
+width: 200px;
+border-radius: 10px;
+transition: 0.3s;
+}
+.gallery img:hover {
+transform: scale(1.1);
+}
+/* Contact */
+#contact {
+background: black;
+}
+/* Button */
+.btn {
+background: #ffcc00;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+}
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+.card-container {
+flex-direction: column;
+align-items: center;
+}
+.gallery {
+flex-direction: column;
+align-items: center;
+}
+header h1 {
+font-size: 28px;
+}
+}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav>
+<h2> My Animation Portfolio</h2>
+</nav>
+<!-- Header -->
+<header>
+<h1>Hi, I'm Amrutha </h1>
+<p>Animator | Story Creator | Dream Builder</p>
+</header>
+<!-- About -->
+<section>
+<h2>About Me</h2>
+<p>I am a passionate animator who loves creating stories, characters and magical visuals.</p>
+</section>
+<!-- Skills -->
+<section>
+<h2>My Skills</h2>
+<div class="card-container">
+<div class="card">2D Animation</div>
+<div class="card">3D Modeling</div>
+<div class="card">Storyboarding</div>
+</div>
+</section>
+<!-- Projects -->
+<section>
+<h2>My Work</h2>
+<div class="card-container">
+<div class="card">Short Film </div>
+<div class="card">Character Design </div>
+<div class="card">Motion Graphics </div>
+</div>
+</section>
+<!-- Contact -->
+<section id="contact">
+<h2>Contact Me</h2>
+<p>Email: amrutha@gmail.com</p>
+<button class="btn">Hire Me</button>
+</section>
+</body>
+</html>
