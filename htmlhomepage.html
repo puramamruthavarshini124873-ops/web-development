@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MovieFlix</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial;
+            margin: 0;
+        }
+
+        header {
+            background-color: red;
+            padding: 15px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        nav {
+            background-color: #111;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: red;
+            margin: 15px;
+            text-decoration: none;
+        }
+
+        .main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .movie {
+            display: inline-block;
+            background-color: #111;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .movie img {
+            width: 150px;
+            height: 200px;
+        }
+
+        /* POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .popup-content {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .close {
+            color: red;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        iframe {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: red;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>🎬 MovieFlix</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="EtherealSorrow.html">Ethereal Sorrow</a>
+    <a href="bored.html">Bored</a>
+    <a href="Romcoms.html"> Romcom's</a>
+    <a href="life.html">Life</a>
+    <a href="FeelGoodmovies.html">Feel Good Movies</a>
+</nav>
+
+<div class="main">
+    <h2>Top Movie Suggestions</h2>
+
+    <!-- MOVIE -->
+    <div class="movie" onclick="showMovie('Stand By Me', 'A story of friendship and adventure.', '8.1/10', 'stand by me vedio.mp4')">
+        <img src="stand by me.jpeg">
+        <p>Stand By Me</p>
+    </div>
+
+    <script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('5 Centimeters Per Second','A touching story about distance and love.','7.5/10','5  cenntimeter pere secon vrdio.mp4')"><img src="cm.jpeg"><p>5 Centimeters Per Second</p></div>
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Roja','Love in conflict.','8.1/10','https://www.youtube.com/embed/qL3s2j4Qp4g')"><img src="roja.jpeg"><p>Roja</p></div>
+
+<div class="movie" onclick="showMovie('Geethanjali','Emotional romance.','8.3/10','https://www.youtube.com/embed/1bY1VdX6kWc')"><img src="geethanjali.jpeg"><p>Geethanjali</p></div>
+
+<div class="movie" onclick="showMovie('Atonement','Love and regret.','7.8/10','atonement vedio.mp4')"><img src="atonment.jpeg"><p>Atonement</p></div>
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Into the Wild','Freedom journey.','8.1/10','https://www.youtube.com/embed/g7ArZ7VD-QQ')"><img src="into the wild.jpeg"><p>Into the Wild</p></div>
+
+<div class="movie" onclick="showMovie('La La Land','Dreams and love.','8.0/10','https://www.youtube.com/embed/0pdqf4P9MB8')"><img src="la la land.jpeg"><p>La La Land</p></div>
+
+<div class="movie" onclick="showMovie('Sita Ramam','Love through letters.','8.6/10','https://www.youtube.com/embed/Ljk6tGZ1l3A')"><img src="sita ramam.jpeg"><p>Sita Ramam</p></div>
+
+<div class="movie" onclick="showMovie('Hi Nanna','Father daughter bond.','8.2/10','https://www.youtube.com/embed/KyZp4Qw9R6w')"><img src="hi nanna.jpeg"><p>Hi Nanna</p></div>
+
+<div class="movie" onclick="showMovie('Laila Majnu','Tragic love story.','7.7/10','https://www.youtube.com/embed/cxY5r9lZ7Yw')"><img src="laila majnu.jpeg"><p>Laila Majnu</p></div>
+
+<div class="movie" onclick="showMovie('Little Women','Sisters and dreams.','7.8/10','https://www.youtube.com/embed/AST2-4db4ic')"><img src="little women.jpeg"><p>Little Women</p></div>
+
+<div class="movie" onclick="showMovie('Good Will Hunting','Genius story.','8.3/10','https://www.youtube.com/embed/ReIJ1lbL-Q8')"><img src="good will hunting.jpeg"><p>Good Will Hunting</p></div>
+
+<div class="movie" onclick="showMovie('(500) Days of Summer','Realistic love story.','7.7/10','500 days.mp4')"><img src="500 days.jpeg"><p>(500) Days of Summer</p></div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+<div class="movie" onclick="showMovie('Pride and Prejudice','Classic romance.','7.8/10','https://www.youtube.com/embed/Ur_DIHs92NM')"><img src="pride.jpeg"><p>Pride and Prejudice</p></div>
+
+<!-- MOVIES END -->
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">❌ Close</span>
+        <h2 id="title"></h2>
+        <p id="desc"></p>
+        <p><b>IMDb:</b> <span id="rating"></span></p>
+        <iframe id="video" width="400" height="250" src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">❌ Close</span>
+
+        <h2 id="title"></h2>
+        <p id="desc"></p>
+        <p><b>IMDb Rating:</b> <span id="rating"></span></p>
+
+        <iframe id="video" width="400" height="250"
+        src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+function showMovie(title, desc, rating, link) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("title").innerText = title;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("rating").innerText = rating;
+    document.getElementById("video").src = link;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("video").src = "";
+}
+</script>
+
+<footer>
+    # AVROY Suggestions
+</footer>
+
+</body>
+</html>

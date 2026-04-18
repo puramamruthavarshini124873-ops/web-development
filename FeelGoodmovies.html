@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feel Good Movies</title>
+
+    <style>
+        body {
+            background: linear-gradient(black, #1a1a00);
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            opacity: 0;
+            transition: 0.6s;
+        }
+
+        body.show {
+            opacity: 1;
+        }
+
+        header {
+            background: linear-gradient(to right, orange, gold);
+            padding: 15px;
+            font-size: 30px;
+            box-shadow: 0 0 15px gold;
+        }
+
+        .quote {
+            margin-top: 20px;
+            color: #ffe680;
+            font-style: italic;
+        }
+
+        .movie {
+            display: inline-block;
+            background: #111;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .movie:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px yellow;
+        }
+
+        img {
+            width: 150px;
+            height: 200px;
+        }
+
+        /* POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .popup-content {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .close {
+            color: red;
+            cursor: pointer;
+        }
+
+        iframe {
+            margin-top: 10px;
+        }
+
+        a {
+            color: orange;
+        }
+
+        .meaning {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1a00;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>😊 Feel Good Movies</header>
+
+<p class="quote">
+"Stories that leave a smile on your heart."
+</p>
+
+<div class="main">
+
+<div class="movie" onclick="showMovie('Casper (1995)','A friendly ghost forms a sweet bond with a lonely girl.','7/10','https://www.youtube.com/embed/1bM3h7L0z7E')">
+    <img src="casper.jpeg">
+    <p>Casper (1995)</p>
+</div>
+
+<div class="movie" onclick="showMovie('Maara','A beautiful journey of stories, art, and soulful connections.','8/10','maara vedio.mp4')">
+    <img src="maara.jpeg">
+    <p>Maara</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Jab We Met','A lively love story that changes two broken people.','8/10','jab we mwt vedio.mp4')">
+    <img src="jab we met.jpeg">
+    <p>Jab We Met</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Hi Nanna','An emotional father-daughter story filled with love and memories.','8/10','https://www.youtube.com/embed/7nV7zQ3Fh1M')">
+    <img src="hi nanna.jpeg">
+    <p>Hi Nanna</p>
+</div>
+
+<div class="movie" onclick="showMovie('(500) Days of Summer','A realistic take on love, expectations, and heartbreak.','8/10','500 days.mp4')">
+    <img src="500 days.jpeg">
+    <p>(500) Days of Summer</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Pride and Prejudice','A classic romantic story of love, pride, and misunderstandings.','8.5/10','https://www.youtube.com/embed/1dYv5u6v55Y')">
+    <img src="pride.jpeg">
+    <p>Pride and Prejudice</p>
+</div>
+
+<div class="movie" onclick="showMovie('Gypsy','A dramatic story of ambition, struggle, and identity.','7/10','https://www.youtube.com/embed/0d8v4l3XxZ8')">
+    <img src="gpysi.jpeg">
+    <p>Gypsy</p>
+</div>
+
+<div class="movie" onclick="showMovie('While You Were Sleeping','A sweet romantic story built on unexpected moments.','7.5/10','https://www.youtube.com/embed/7cXn3d2yFzE')">
+    <img src="while you r sleeping.jpeg">
+    <p>While You Were Sleeping</p>
+</div>
+
+<div class="movie" onclick="showMovie('Ashta Chamma','A fun romantic comedy inspired by classic storytelling.','7.5/10','https://www.youtube.com/embed/8z1j3m8Lk9Q')">
+    <img src="astha.jpeg">
+    <p>Ashta Chamma</p>
+</div>
+
+<div class="movie" onclick="showMovie('Sasirekha Parinayam','A cute romantic journey filled with twists and humor.','7.5/10','https://www.youtube.com/embed/5m2l9d7Qx2E')">
+    <img src="parinayam.jpeg">
+    <p>Sasirekha Parinayam</p>
+</div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">❌ Close</span>
+        <h2 id="title"></h2>
+        <p id="desc"></p>
+        <p><b>IMDb:</b> <span id="rating"></span></p>
+        <iframe id="video" width="400" height="250" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<br>
+<a href="htmlhomepage.html">⬅ Back to Home</a>
+
+<div class="meaning">
+<h3>Meaning of Feel Good 😊</h3>
+<p>
+Feel good movies bring happiness, warmth, and comfort. They leave you smiling and relaxed.
+</p>
+</div>
+
+<script>
+// popup
+function showMovie(title, desc, rating, link) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("title").innerText = title;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("rating").innerText = rating;
+    document.getElementById("video").src = link;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("video").src = "";
+}
+
+// smooth page load + navigation
+window.onload = function() {
+    document.body.classList.add("show");
+};
+
+document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function(e) {
+        let target = this.getAttribute("href");
+
+        if (target && target.includes(".html")) {
+            e.preventDefault();
+            document.body.classList.remove("show");
+
+            setTimeout(() => {
+                window.location.href = target;
+            }, 500);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

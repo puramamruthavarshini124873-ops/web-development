@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Romcom Movies</title>
+
+    <style>
+        body {
+            background: linear-gradient(black, #1a001a);
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            opacity: 0;
+            transition: 0.6s;
+        }
+
+        body.show {
+            opacity: 1;
+        }
+
+        header {
+            background: linear-gradient(to right, hotpink, red);
+            padding: 15px;
+            font-size: 30px;
+            box-shadow: 0 0 15px pink;
+        }
+
+        .quote {
+            margin-top: 20px;
+            color: #ffcce6;
+            font-style: italic;
+        }
+
+        .movie {
+            display: inline-block;
+            background: #111;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .movie:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px pink;
+        }
+
+        img {
+            width: 150px;
+            height: 200px;
+        }
+
+        /* POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .popup-content {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .close {
+            color: red;
+            cursor: pointer;
+        }
+
+        iframe {
+            margin-top: 10px;
+        }
+
+        a {
+            color: hotpink;
+        }
+
+        .meaning {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a001a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>💕 Romcom Movies</header>
+
+<p class="quote">
+"Love, laughter, and a little bit of chaos."
+</p>
+
+<div class="main">
+
+<div class="movie" onclick="showMovie('How to Lose a Guy in 10 Days','A fun romantic battle that turns into real love.','7/10','https://www.youtube.com/embed/2ZMGk_Ml1fc')">
+    <img src="how to loose a guy in 10 days.jpeg">
+    <p>How to Lose a Guy in 10 Days</p>
+</div>
+
+<div class="movie" onclick="showMovie('Meet Joe Black','A mysterious man named Death experiences life and love.','8/10','meet back joe viedo.mp4')">
+    <img src="meet joe back.jpeg">
+    <p>Meet Joe Black</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+
+<div class="movie" onclick="showMovie('Your Name','A magical love story connected across time and fate.','8.5/10','your name vedio.mp4')">
+    <img src="your  name.jpeg">
+    <p>Your Name</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Sakhi','A heartfelt story about love after marriage.','8/10','https://www.youtube.com/embed/N3Jv2uP7K7g')">
+    <img src="sakhi.jpeg">
+    <p>Sakhi</p>
+</div>
+
+<div class="movie" onclick="showMovie('Kabhi Khushi Kabhi Gham','A grand story of family, love, and emotional bonds.','8/10','kkkg.mp4')">
+    <img src="kkkg.jpeg">
+    <p>Kabhi Khushi Kabhi Gham</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+
+<div class="movie" onclick="showMovie('Dear Comrade','An intense love story mixed with anger and healing.','8/10','https://www.youtube.com/embed/2Qz1GJ2hF7g')">
+    <img src="dear comrade.jpeg">
+    <p>Dear Comrade</p>
+</div>
+
+<div class="movie" onclick="showMovie('With Love','A warm story about relationships and emotional connections.','7.5/10','https://www.youtube.com/embed/3E0s1lQn3Xg')">
+    <img src="with love.jpeg">
+    <p>With Love</p>
+</div>
+
+<div class="movie" onclick="showMovie('Premalu','A modern romantic comedy with cute and funny moments.','8/10','https://www.youtube.com/embed/6a9P3z9cQ7Y')">
+    <img src="premalu.jpeg">
+    <p>Premalu</p>
+</div>
+
+<div class="movie" onclick="showMovie('Remo','A quirky love story with humor and disguise.','7.5/10','https://www.youtube.com/embed/3ZKq1v4c2xA')">
+    <img src="remo.jpeg">
+    <p>Remo</p>
+</div>
+
+<div class="movie" onclick="showMovie('Roja','A powerful love story set against conflict and patriotism.','8.5/10','https://www.youtube.com/embed/1kVk5g5Zk0U')">
+    <img src="roja.jpeg">
+    <p>Roja</p>
+</div>
+
+<div class="movie" onclick="showMovie('Joe','A deep emotional journey of love, heartbreak, and growth.','8/10','https://www.youtube.com/embed/3u6l1Gv6lq8')">
+    <img src="joe.jpeg">
+    <p>Joe</p>
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">❌ Close</span>
+        <h2 id="title"></h2>
+        <p id="desc"></p>
+        <p><b>IMDb:</b> <span id="rating"></span></p>
+        <iframe id="video" width="400" height="250" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<br>
+<a href="htmlhomepage.html">⬅ Back to Home</a>
+
+<div class="meaning">
+<h3>Meaning of Romcom 💕</h3>
+<p>
+Romantic comedies blend love and humor, showing relationships in a fun, emotional, and heartwarming way.
+</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, link) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("title").innerText = title;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("rating").innerText = rating;
+    document.getElementById("video").src = link;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("video").src = "";
+}
+
+window.onload = function() {
+    document.body.classList.add("show");
+};
+</script>
+
+</body>
+</html>

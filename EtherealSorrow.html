@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethereal Sorrow</title>
+
+    <style>
+        body {
+            background: linear-gradient(black, #1a001a);
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+
+        body.show {
+            opacity: 1;
+        }
+
+        header {
+            background: linear-gradient(to right, #4b004b, red);
+            padding: 15px;
+            font-size: 30px;
+            box-shadow: 0 0 20px red;
+        }
+
+        .quote {
+            margin-top: 20px;
+            color: #ccc;
+        }
+
+        .movie {
+            display: inline-block;
+            background: #111;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .movie:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px purple;
+        }
+
+        img {
+            width: 150px;
+            height: 200px;
+        }
+
+        /* POPUP */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .popup-content {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .close {
+            color: red;
+            cursor: pointer;
+        }
+
+        iframe {
+            margin-top: 10px;
+        }
+
+        a {
+            color: red;
+        }
+
+        .meaning {
+            margin-top: 40px;
+            padding: 20px;
+            background: #0d001a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>🌙 Ethereal Sorrow</header>
+
+<p class="quote">
+"Some stories don’t heal you… they stay with you forever."
+</p>
+
+<div class="main">
+
+<div class="movie" onclick="showMovie('Vanilla Sky','A surreal story of love, reality, and illusion.','7.5/10','vanilla sky vedio.mp4')">
+    <img src="vanila.jpeg">
+    <p>Vanilla Sky</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Atonement','A tragic love story ruined by a misunderstanding and guilt.','8/10','atonement vedio.mp4')">
+    <img src="atonment.jpeg">
+    <p>Atonement</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('Bridge to Terabithia','A magical friendship that ends in unexpected sorrow.','7.5/10','https://www.youtube.com/embed/T2TDSEG57hI')">
+    <img src="bridge.jpeg">
+    <p>Bridge to Terabithia</p>
+</div>
+
+<div class="movie" onclick="showMovie('Grave of the Fireflies','A heartbreaking story of two siblings struggling to survive during war.','9/10','https://www.youtube.com/embed/4vPeTSRd580')">
+    <img src="fireflies.jpeg">
+    <p>Grave of the Fireflies</p>
+</div>
+
+<div class="movie" onclick="showMovie('I Want to Eat Your Pancreas','A beautiful yet painful story about life and fleeting moments.','8.5/10','https://www.youtube.com/embed/MmoBvmJA9XI')">
+    <img src="pancreas.jpeg">
+    <p>I Want to Eat Your Pancreas</p>
+</div>
+
+
+<div class="movie" onclick="showMovie('Summer Ghost','A short emotional story about life, death, and meaning.','7/10','summer gost viedio.mp4')">
+    <img src="summer ghost.jpeg">
+    <p>Summer Ghost</p>
+</div>
+
+<script>
+function showMovie(title, desc, rating, video) {
+    document.body.innerHTML = 
+    '<video src="'+video+'" style="width:100vw;height:100vh;object-fit:cover;" autoplay controls></video>';
+}
+</script>
+
+<div class="movie" onclick="showMovie('One Day','A love story that unfolds over years with a heartbreaking end.','7.5/10','https://www.youtube.com/embed/zVuuooZqVaU')">
+    <img src="one day.jpeg">
+    <p>One Day</p>
+</div>
+
+<div class="movie" onclick="showMovie('La La Land','A dreamy romance about love, ambition, and painful choices.','8/10','https://www.youtube.com/embed/0pdqf4P9MB8')">
+    <img src="la la land.jpeg">
+    <p>La La Land</p>
+</div>
+
+
+<div class="movie" onclick="showMovie('The Theory of Everything','The inspiring yet emotional life story of Stephen Hawking.','8/10','https://www.youtube.com/embed/Salz7uGp72c')">
+    <img src="theory of every thing.jpeg">
+    <p>The Theory of Everything</p>
+</div>
+
+<div class="movie" onclick="showMovie('Stand by Me Doraemon','A nostalgic and emotional goodbye between Nobita and Doraemon.','8/10','https://www.youtube.com/embed/Ng6X9uR6V6o')">
+    <img src="doreamon.jpeg">
+    <p>Goodbye Doraemon</p>
+</div>
+
+</div>
+
+<!-- POPUP (ONLY ONE) -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">❌ Close</span>
+        <h2 id="title"></h2>
+        <p id="desc"></p>
+        <p><b>IMDb:</b> <span id="rating"></span></p>
+        <iframe id="video" width="400" height="250" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<br>
+<a href="htmlhomepage.html">⬅ Back to Home</a>
+
+<div class="meaning">
+<h3>Meaning of Ethereal Sorrow 🌙</h3>
+<p>
+A soft, deep sadness that feels beautiful and stays quietly in your heart.
+</p>
+</div>
+
+<script>
+// popup
+function showMovie(title, desc, rating, link) {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("title").innerText = title;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("rating").innerText = rating;
+    document.getElementById("video").src = link;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("video").src = "";
+}
+
+// smooth load
+window.onload = function() {
+    document.body.classList.add("show");
+};
+</script>
+
+</body>
+</html>
